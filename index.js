@@ -11,7 +11,11 @@ const { error, log } = require("console");
 
 app.use(express.json()); // what ever request is get from respones it automatically passed through json
 
-app.use(cors()); // Using this the react js projectwill connect to express app on 4000 port
+app.use(
+  cors({
+    origin: ["https://mru-online.onrender.com"],
+  })
+); // Using this the react js projectwill connect to express app on 4000 port
 
 // intalise database
 // dATABASE cONNECTION with mongoDB
