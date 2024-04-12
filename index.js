@@ -14,9 +14,14 @@ app.use(express.json()); // what ever request is get from respones it automatica
 app.use(express.urlencoded({extended : false}))
 
 app.use(
-  cors(
-  {origin: ["https://mru-online-midhun.onrender.com", "http://localhost:3000"],}
-)); // Using this the react js projectwill connect to express app on 4000 port
+  cors({
+    origin: [
+      "https://mru-online-midhun.onrender.com",
+      "http://localhost:3000",
+      "https://midhun2823.github.io",
+    ],
+  })
+); // Using this the react js projectwill connect to express app on 4000 port
 
 // intalise database
 // dATABASE cONNECTION with mongoDB
@@ -32,6 +37,8 @@ app.use(
 
 // API creation endpoint
 const PORT = process.env.PORT || 4000;
+// export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 
 app.get("/", (req, res) => {
   res.send("Express appppp is running");
@@ -58,7 +65,7 @@ app.use("/images", express.static("upload/images"));
 app.post("/upload", upload.single("product"), (req, res) => {
   res.json({
     success: 1,
-    image_url: `http://localhost:${PORT}/images/${req.file.filename}`,
+    image_url: `http://localhost:4000/images/${req.file.filename}`,
   });
 });
 
