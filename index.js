@@ -11,7 +11,7 @@ const { error, log } = require("console");
 const connectDB = require("./config/connectDB");
 
 app.use(express.json()); // what ever request is get from respones it automatically passed through json
-app.use(express.urlencoded({extended : false}))
+app.use(express.urlencoded({ extended: false }));
 
 app.use(
   cors({
@@ -39,7 +39,6 @@ app.use(
 const PORT = process.env.PORT || 4000;
 // export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-
 app.get("/", (req, res) => {
   res.send("Express appppp is running");
 });
@@ -65,7 +64,7 @@ app.use("/images", express.static("upload/images"));
 app.post("/upload", upload.single("product"), (req, res) => {
   res.json({
     success: 1,
-    image_url: `http://localhost:4000/images/${req.file.filename}`,
+    image_url: `https://mru-online-backend.onrender.com/images/${req.file.filename}`,
   });
 });
 
@@ -311,5 +310,5 @@ const starServer = async () => {
   } catch (error) {
     console.log(error);
   }
-}
-starServer()
+};
+starServer();
