@@ -19,6 +19,7 @@ app.use(
       "https://mru-online-midhun.onrender.com",
       "http://localhost:3000",
       "https://midhun2823.github.io",
+      "http://localhost:5173",
     ],
   })
 ); // Using this the react js projectwill connect to express app on 4000 port
